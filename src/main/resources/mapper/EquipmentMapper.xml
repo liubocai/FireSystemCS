@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+
+<mapper namespace="com.example.firesystemcs.dao.EquipmentDao">
+    <resultMap id="equipMap" type="com.example.firesystemcs.entity.Equipment">
+        <id column="eid" jdbcType="VARCHAR" property="eid"/>
+        <result column="ip" jdbcType="VARCHAR" property="ip"/>
+        <result column="status" jdbcType="VARCHAR" property="status"/>
+        <result column="ename" jdbcType="VARCHAR" property="ename"/>
+    </resultMap>
+
+
+    <select id="getAllEquip" resultMap="equipMap">
+        SELECT * FROM equipment ORDER BY eid
+    </select>
+
+    <select id="getRidByeid" resultType="String" parameterType="String">
+        SELECT rid FROM dradioequip where eid = #{eid}
+    </select>
+
+    <select id="getEquipByeid" resultMap="equipMap" parameterType="String">
+        SELECT * FROM equipment where eid = #{eid}
+    </select>
+
+    <select id="getIpByeid" resultType="String" parameterType="String">
+        SELECT ip FROM equipment where eid = #{eid}
+    </select>
+</mapper>

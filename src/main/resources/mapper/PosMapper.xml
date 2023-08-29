@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.example.firesystemcs.dao.PosDao">
+    <resultMap id="posmap" type="com.example.firesystemcs.entity.Pos">
+        <id column="eid" jdbcType="VARCHAR" property="eid"/>
+        <result column="rid" jdbcType="VARCHAR" property="rid"/>
+        <result column="time" jdbcType="DATE" property="time"/>
+        <result column="lat" jdbcType="VARCHAR" property="lat"/>
+        <result column="lon" jdbcType="VARCHAR" property="lon"/>
+        <result column="height" jdbcType="VARCHAR" property="height"/>
+    </resultMap>
+
+<!--    made position是mysql的关键字，作为表名得加波浪号，-->
+    <insert id="addPos" parameterType="com.example.firesystemcs.entity.Pos">
+        INSERT INTO `position`(eid, rid, t_time, lat, lon, height)
+        VALUES (#{eid}, #{rid}, NOW(), #{lat}, #{lon}, #{height});
+    </insert>
+
+    <select id="getByeid" resultMap="posmap" parameterType="String">
+        SELECT * FROM position where eid = #{eid}
+    </select>
+</mapper>

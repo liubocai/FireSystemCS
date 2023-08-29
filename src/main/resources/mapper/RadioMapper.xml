@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.example.firesystemcs.dao.RadioDao">
+    <insert id="addARadio" parameterType="com.example.firesystemcs.entity.Radio">
+        INSERT INTO radio(rid, ip, status)
+        VALUES (#{rid}, #{ip}, #{status})
+    </insert>
+</mapper>
+<!--<resultMap id="baseMap" type="com.xybl.server.entity.Appeal">-->
+<!--    <id column="t_al_id" jdbcType="VARCHAR" property="id"/>-->
+<!--    <result column="t_al_time" jdbcType="DATE" property="al_time"/>-->
+<!--    <result column="t_al_address" jdbcType="VARCHAR" property="address"/>-->
+<!--    <result column="t_al_title" jdbcType="CLOB" property="title"/>-->
+<!--    <result column="t_al_detail" jdbcType="CLOB" property="detail"/>-->
+<!--    <result column="t_al_appellant" jdbcType="VARCHAR" property="appellant"/>-->
+<!--    <result column="t_al_filepath" jdbcType="CLOB" property="filepath"/>-->
+<!--    <result column="t_al_real" jdbcType="VARCHAR" property="re_appeal"/>-->
+<!--    <result column="t_al_pos" jdbcType="VARCHAR" property="pos"/>-->
+<!--</resultMap>-->
+
+<!--&lt;!&ndash;  public Appeal getOneAppealById(String id);  &ndash;&gt;-->
+<!--<select id="getOneAppealById" parameterType="String" resultMap="baseMap">-->
+<!--    SELECT *-->
+<!--    FROM t_appeal-->
+<!--    <where>-->
+<!--        <if test="id != null and id != ''">-->
+<!--            t_al_id = #{id};-->
+<!--        </if>-->
+<!--    </where>-->
+<!--</select>-->
